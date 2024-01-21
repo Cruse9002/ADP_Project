@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Accounting</title>
+  <style>
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Accounting</h1>
+  
+  <form id="accountingForm" action="#" method="post">
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount" required>
+    </div>
+    
+    <input type="submit" value="Add Entry">
+  </form>
+  
+  <div id="message" class="message"></div>
+  
+  <h2>Accounting Entries</h2>
+  
+  <table id="entriesTable">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Accounting entries will be dynamically added here -->
+    </tbody>
+  </table>
+  
+  <script>
+    
+    const accountingForm = document.getElementById('accountingForm');
+    const message = document.getElementById('message');
+    const entriesTable = document.getElementById('entriesTable');
+    const entriesTableBody = entriesTable.getElementsByTagName('tbody')[0];
+    
+    accountingForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      
+      const description = document.getElementById('description').value;
+      const amount = document.getElementById('amount').value;
+      
+      
+      const newRow = document.createElement('tr');
+      
+      
+      const descriptionCell = document.createElement('td');
+      descriptionCell.textContent = description;
+      
+      const amountCell = document.createElement('td');
+      amountCell.textContent = amount;
+      
+      
+      newRow.appendChild(descriptionCell);
+      newRow.appendChild(amountCell);
+      
+      
+      entriesTableBody.appendChild(newRow);
+      
+      
+      message.textContent = 'Accounting entry added successfully!';
+      
+      
+      accountingForm.reset();
+    });
+  </script>
+</body>
+</html>

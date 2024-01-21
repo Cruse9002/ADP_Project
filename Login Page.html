@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+<style>
+body {
+  background-color: white;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.form {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: blanchedalmond;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: grey;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Enterprise Resourse Planning and Management</h1>
+  <br>
+  <h1>Login</h1>
+  <form>
+    <input type="text" name="username" class="input" placeholder="Username">
+    <input type="password" name="password" class="input" placeholder="Password">
+    <button type="button" class="button" onclick="verify()">Login</button>
+    <span class="error"></span>
+  </form>
+</div>
+<script>
+    function verify() {
+      window.location.href = 'Home%20Page.html';
+    }
+</script>
+</body>
+</html>

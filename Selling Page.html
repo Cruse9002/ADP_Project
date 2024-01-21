@@ -1,0 +1,98 @@
+<html>
+<head>
+  <title>Selling Form</title>
+  <style>
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Selling Form</h1>
+  
+  <form id="sellingForm" action="#" method="post">
+    <div class="form-group">
+      <label for="product">Product:</label>
+      <input type="text" id="product" name="product" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="customer">Customer:</label>
+      <select id="customer" name="customer" required>
+        <option value="">Select Customer</option>
+        <option value="customer1">Customer 1</option>
+        <option value="customer2">Customer 2</option>
+        <option value="customer3">Customer 3</option>
+      </select>
+    </div>
+    
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="message" class="message"></div>
+  
+  <script>
+    
+    const sellingForm = document.getElementById('sellingForm');
+    const message = document.getElementById('message');
+    
+    sellingForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      
+      const product = document.getElementById('product').value;
+      const quantity = document.getElementById('quantity').value;
+      const customer = document.getElementById('customer').value;
+      
+      
+      
+      
+      const formData = {
+        product: product,
+        quantity: quantity,
+        customer: customer
+      };
+      
+      
+      setTimeout(function() {
+        
+        message.textContent = 'Selling order submitted successfully!';
+        
+        
+        sellingForm.reset();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

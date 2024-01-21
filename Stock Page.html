@@ -1,0 +1,123 @@
+<html>
+<head>
+  <title>Stock Management</title>
+  <style>
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stock Management</h1>
+  
+  <form id="stockForm" action="#" method="post">
+    <div class="form-group">
+      <label for="product">Product:</label>
+      <input type="text" id="product" name="product" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" required>
+    </div>
+    
+    <input type="submit" value="Add to Stock">
+  </form>
+  
+  <div id="message" class="message"></div>
+  
+  <h2>Current Stock</h2>
+  
+  <table id="stockTable">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Stock items will be dynamically added here -->
+    </tbody>
+  </table>
+  
+  <script>
+    
+    const stockForm = document.getElementById('stockForm');
+    const message = document.getElementById('message');
+    const stockTable = document.getElementById('stockTable');
+    const stockTableBody = stockTable.getElementsByTagName('tbody')[0];
+    
+    stockForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      
+      const product = document.getElementById('product').value;
+      const quantity = document.getElementById('quantity').value;
+      
+      
+      const newRow = document.createElement('tr');
+      
+      
+      const productCell = document.createElement('td');
+      productCell.textContent = product;
+      
+      const quantityCell = document.createElement('td');
+      quantityCell.textContent = quantity;
+      
+      
+      newRow.appendChild(productCell);
+      newRow.appendChild(quantityCell);
+      
+      
+      stockTableBody.appendChild(newRow);
+      
+      
+      message.textContent = 'Stock item added successfully!';
+      
+      
+      stockForm.reset();
+    });
+  </script>
+</body>
+</html>

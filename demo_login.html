@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="demo_login.css">
+    <script>
+        function validatePassword() {
+            var passwordInput = document.getElementById("password");
+            var password = passwordInput.value;
+
+            var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must contain at least 8 characters with at least one letter, one digit, and one special character (@ $ ! % * # ? &).");
+                passwordInput.focus();
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action="login_validate.php" onsubmit="return validatePassword()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

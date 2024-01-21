@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 50px;
+  text-align: center;
+  background: dodgerblue;
+  color: black;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+
+
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.side {
+  -ms-flex: 100%; /* IE10 */
+  flex: 100%;
+  background-color: #f1f1f1;
+  padding: 20px;
+height: 100%;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.tab1 {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: white;
+float: right;
+}
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab1 button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #333;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+color: white;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+#mySearch {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+
+#tb {
+width: 100%;
+border-collapse: collapse;
+}
+
+#tb td, #tb th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#tb th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Sales and Purchase</h1>
+  <p>ERP system</p>
+</div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Sales')">Sales</button>
+  <button class="tablinks" onclick="openCity(event, 'Quotation')">Quotation</button>
+  <button class="tablinks" onclick="openCity(event, 'Purchase order')">Purchase Order</button>
+</div>
+
+<div id="Sales" class="tabcontent">
+  <h3>Sales</h3>
+  <p><input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></p>
+<table id="tb">
+<tr> <th> Item name </th>
+<th> Item ID </th>
+</tr>
+<tr> <td> RJ 12 </td>
+<td> 12 </td>
+</tr>
+</table>
+
+</div>
+
+<div id="Quotation" class="tabcontent">
+  <h3>Quotation</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Purchase order" class="tabcontent">
+  <h3>Purchase order</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+
+
+<div class="row">
+  <div class="side">
+    
+<div class="tab1">
+  <button class="tablinks" onclick="openCity(event, 'Create')">Create new</button>
+
+</div>
+
+<div id="Create" class="tabcontent">
+  <h3>Create new</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+
+</div>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function myFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+
+</script>
+
+</body>
+</html>
+
